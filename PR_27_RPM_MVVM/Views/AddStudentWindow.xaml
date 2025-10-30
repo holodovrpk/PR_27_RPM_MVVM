@@ -1,0 +1,83 @@
+﻿<!-- 
+    ОКНО ДОБАВЛЕНИЯ СТУДЕНТА
+    =========================
+    Это окно используется для ввода данных нового студента.
+    Все поля (Имя, Возраст, Группа и т.д.) привязаны через Binding
+    к свойствам объекта Student, который передаётся в DataContext из ViewModel.
+    После нажатия "ОК" окно возвращает DialogResult = true → ViewModel добавляет объект в коллекцию.
+-->
+
+<Window x:Class="PR_27_RPM_MVVM.Views.AddStudentWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PR_27_RPM_MVVM.Views"
+        mc:Ignorable="d"
+        Title="Добавление студента"
+        Height="300" Width="400"
+        WindowStartupLocation="CenterOwner">
+
+    <!-- 
+        Основная сетка (Grid) делит окно на строки.
+        Каждая строка — это отдельное поле ввода (Имя, Возраст, Группа и т.д.)
+        Последняя строка (Row=5) — панель с кнопками.
+    -->
+    <Grid Margin="20">
+
+        <!-- Определяем структуру: 6 строк -->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <!-- Строка 0: Имя -->
+            <RowDefinition Height="Auto"/>
+            <!-- Строка 1: Возраст -->
+            <RowDefinition Height="Auto"/>
+            <!-- Строка 2: Группа -->
+            <RowDefinition Height="Auto"/>
+            <!-- Строка 3: Средний балл -->
+            <RowDefinition Height="Auto"/>
+            <!-- Строка 4: E-mail -->
+            <RowDefinition Height="Auto"/>
+            <!-- Строка 5: Кнопки -->
+        </Grid.RowDefinitions>
+
+        <!--  ПОЛЕ "Имя"  -->
+        <!-- TextBlock — это просто надпись -->
+        <TextBlock Text="Имя:" Grid.Row="0"/>
+        <!-- TextBox связан с свойством Name через Binding.
+             DataContext этого окна = объект Student, поэтому
+             {Binding Name} означает Student.Name -->
+        <TextBox Text="{Binding Name}" Grid.Row="0" Margin="100,0,0,5"/>
+
+        <!--  ПОЛЕ "Возраст"  -->
+        <TextBlock Text="Возраст:" Grid.Row="1"/>
+        <TextBox Text="{Binding Age}" Grid.Row="1" Margin="100,0,0,5"/>
+
+        <!--  ПОЛЕ "Группа"  -->
+        <TextBlock Text="Группа:" Grid.Row="2"/>
+        <TextBox Text="{Binding Group}" Grid.Row="2" Margin="100,0,0,5"/>
+
+        <!--  ПОЛЕ "Средний балл"  -->
+        <TextBlock Text="Средний балл:" Grid.Row="3"/>
+        <TextBox Text="{Binding Grade}" Grid.Row="3" Margin="100,0,0,5"/>
+
+        <!--  ПОЛЕ "E-mail"  -->
+        <TextBlock Text="E-mail:" Grid.Row="4"/>
+        <TextBox Text="{Binding Email}" Grid.Row="4" Margin="100,0,0,5"/>
+
+        <!--  ПАНЕЛЬ С КНОПКАМИ  -->
+        <!-- StackPanel располагает кнопки горизонтально -->
+        <StackPanel Grid.Row="5" Orientation="Horizontal"
+                    HorizontalAlignment="Right" Margin="0,10,0,0">
+
+            <!-- Кнопка подтверждения.
+                 При нажатии выполняется метод OkButton_Click в AddStudentWindow.xaml.cs -->
+            <Button Content="OK" Width="80" Margin="5" Click="OkButton_Click"/>
+
+            <!-- Кнопка отмены.
+                 Закрывает окно без сохранения данных (DialogResult = false). -->
+            <Button Content="Отмена" Width="80" Margin="5" Click="CancelButton_Click"/>
+        </StackPanel>
+
+    </Grid>
+</Window>

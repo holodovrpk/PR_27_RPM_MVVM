@@ -9,7 +9,10 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace PR_27_RPM_MVVM
+
+
+
+    namespace PR_27_RPM_MVVM.Views
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
