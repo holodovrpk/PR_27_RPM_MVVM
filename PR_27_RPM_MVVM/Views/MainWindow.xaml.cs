@@ -1,4 +1,6 @@
-﻿using System.Text;
+﻿using PR_27_RPM_MVVM.ViewModels;
+using System.ComponentModel;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -22,6 +24,11 @@ using System.Windows.Shapes;
         public MainWindow()
         {
             InitializeComponent();
+
+
+            
+
+
         }
     }
 }

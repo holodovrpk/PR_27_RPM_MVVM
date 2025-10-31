@@ -97,6 +97,7 @@
                     IsReadOnly="True"/>
                 <!-- Только для просмотра -->
             </StackPanel>
+            
 
             <!-- Вторая колонка (email) -->
             <StackPanel>
@@ -119,7 +120,7 @@
             Orientation="Horizontal" 
             Grid.Row="2" 
             HorizontalAlignment="Right">
-
+            <TextBlock Text="{Binding StudentCount}" />
             <!-- Кнопка "Добавить" -->
             <!-- Привязка к команде AddCommand -->
             <Button 
